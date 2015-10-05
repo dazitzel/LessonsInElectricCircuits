@@ -6,11 +6,21 @@
 
 #####################################################################
 
+pdf : html
+#	make -C DC html
+#	make -C AC html
+#	make -C Semi html
+	cd Digital & make pdf & cd ..
+#	make -C Ref html
+#	make -C Exper html
+
+#####################################################################
+
 html :
 #	make -C DC html
 #	make -C AC html
 #	make -C Semi html
-#	make -C Digital html
+	cd Digital & make html & cd ..
 #	make -C Ref html
 #	make -C Exper html
 
