@@ -570,6 +570,13 @@ txt : $(SRC)
 
 
 
+# Generates just PDF output
+pdf : $(SRC)
+#	make latex
+#	dvips -z -Ppdf -o DIGI.ps DIGI.dvi
+#	ps2pdf DIGI.ps DIGI.pdf
+#	gzip -f DIGI.ps
+
 # Generates compressed PostScript and PDF output
 DIGI.ps : $(SRC)
 #	make latex
