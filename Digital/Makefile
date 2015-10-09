@@ -82,7 +82,7 @@ SRC = numbers.sml \
 
 # Generates HTML output
 html : $(SRC) sml2html.sed
-#	make DIGI_1.html
+	make DIGI_1.html
 #	make DIGI_2.html
 #	make DIGI_3.html
 #	make DIGI_4.html
