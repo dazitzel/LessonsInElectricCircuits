@@ -6,11 +6,11 @@
 
 #####################################################################
 
-pdf : html
+pdf :
 #	make -C DC html
 #	make -C AC html
 #	make -C Semi html
-	cd Digital & make pdf & cd ..
+	cd Digital & nmake pdf & cd ..
 #	make -C Ref html
 #	make -C Exper html
 
@@ -20,7 +20,7 @@ html :
 #	make -C DC html
 #	make -C AC html
 #	make -C Semi html
-	cd Digital & make html & cd ..
+#	cd Digital & nmake html & cd ..
 #	make -C Ref html
 #	make -C Exper html
 
@@ -221,3 +221,10 @@ untarliecsrc :
 #####################################################################
 
 
+clean :
+#	make -C DC html
+#	make -C AC html
+#	make -C Semi html
+	cd Digital & nmake clean & cd ..
+#	make -C Ref html
+#	make -C Exper html

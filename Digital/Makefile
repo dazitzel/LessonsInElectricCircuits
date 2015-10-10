@@ -82,7 +82,7 @@ SRC = numbers.sml \
 
 # Generates HTML output
 html : $(SRC) sml2html.sed
-	make DIGI_1.html
+#	make DIGI_1.html
 #	make DIGI_2.html
 #	make DIGI_3.html
 #	make DIGI_4.html
@@ -167,37 +167,37 @@ dsl.tex : dsl.sml
 
 # Converts SubML source into LaTeX source
 numbers.latex : numbers.sml sml2latx.sed
-#	sed -f sml2latx.sed numbers.sml > numbers.latex
+	sed -f sml2latx.sed numbers.sml > numbers.latex
 
 binary.latex : binary.sml sml2latx.sed
-#	sed -f sml2latx.sed binary.sml > binary.latex
+	sed -f sml2latx.sed binary.sml > binary.latex
 
 gates.latex : gates.sml sml2latx.sed
-#	sed -f sml2latx.sed gates.sml > gates.latex
+	sed -f sml2latx.sed gates.sml > gates.latex
 
 switches.latex : switches.sml sml2latx.sed
-#	sed -f sml2latx.sed switches.sml > switches.latex
+	sed -f sml2latx.sed switches.sml > switches.latex
 
 relays.latex : relays.sml sml2latx.sed
-#	sed -f sml2latx.sed relays.sml > relays.latex
+	sed -f sml2latx.sed relays.sml > relays.latex
 
 ladder.latex : ladder.sml sml2latx.sed
-#	sed -f sml2latx.sed ladder.sml > ladder.latex
+	sed -f sml2latx.sed ladder.sml > ladder.latex
 
 boolean.latex : boolean.sml sml2latx.sed
-#	sed -f sml2latx.sed boolean.sml > boolean.latex
+	sed -f sml2latx.sed boolean.sml > boolean.latex
 
 karnaugh.latex : karnaugh.sml sml2latx.sed
-#	sed -f sml2latx.sed karnaugh.sml > karnaugh.latex
+	sed -f sml2latx.sed karnaugh.sml > karnaugh.latex
 
 combin.latex : combin.sml sml2latx.sed
-#	sed -f sml2latx.sed combin.sml > combin.latex
+	sed -f sml2latx.sed combin.sml > combin.latex
 
 multivib.latex : multivib.sml sml2latx.sed
-#	sed -f sml2latx.sed multivib.sml > multivib.latex
+	sed -f sml2latx.sed multivib.sml > multivib.latex
 
 counters.latex : counters.sml sml2latx.sed
-#	sed -f sml2latx.sed counters.sml > counters.latex
+	sed -f sml2latx.sed counters.sml > counters.latex
 
 shiftreg.latex : shiftreg.sml sml2latx.sed
 #	sed -f sml2latx.sed shiftreg.sml > shiftreg.latex
@@ -477,25 +477,25 @@ tex : $(SRC) sml2html.sed
 
 # Generates DVI output using LaTeX
 latex : $(SRC) sml2latx.sed
-#	make numbers.latex      
-#	make binary.latex
-#	make gates.latex
-#	make switches.latex
-#	make relays.latex
-#	make ladder.latex
-#	make boolean.latex
-#	make karnaugh.latex
-#	make combin.latex
-#	make multivib.latex
-#	make counters.latex
-#	make shiftreg.latex
-#	make a2d.latex
-#	make commun.latex
-#	make memory.latex
-#	make computer.latex
-#	make about.latex
-#	make contrib.latex
-#	make dsl.latex
+	nmake numbers.latex      
+	nmake binary.latex
+	nmake gates.latex
+	nmake switches.latex
+	nmake relays.latex
+	nmake ladder.latex
+	nmake boolean.latex
+	nmake karnaugh.latex
+	nmake combin.latex
+	nmake multivib.latex
+	nmake counters.latex
+#	nmake shiftreg.latex
+#	nmake a2d.latex
+#	nmake commun.latex
+#	nmake memory.latex
+#	nmake computer.latex
+#	nmake about.latex
+#	nmake contrib.latex
+#	nmake dsl.latex
 #	cat hi.latex \
 #           numbers.latex \
 #           binary.latex \
@@ -572,7 +572,7 @@ txt : $(SRC)
 
 # Generates just PDF output
 pdf : $(SRC)
-#	make latex
+	nmake latex
 #	dvips -z -Ppdf -o DIGI.ps DIGI.dvi
 #	ps2pdf DIGI.ps DIGI.pdf
 #	gzip -f DIGI.ps
@@ -710,8 +710,18 @@ DIGItiny.tar.gz: $(SRC)
 
 # Cleans out old, unwanted files
 clean:
+	del numbers.latex      
+	del binary.latex
+	del gates.latex
+	del switches.latex
+	del relays.latex
+	del ladder.latex
+	del boolean.latex
+	del karnaugh.latex
+	del combin.latex
+	del multivib.latex
+	del counters.latex
 #	-rm *.bak
 #	-rm *.spn
 #	-rm junk*
 #	-rm core
-
