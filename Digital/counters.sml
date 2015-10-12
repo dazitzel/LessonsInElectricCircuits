@@ -285,6 +285,30 @@ This circuit, or something very much like it, is at the heart of every position-
 
 
 <section>
+<sectiontitle>Starting a counter</sectiontitle>
+
+<para>
+INCOMPLETE
+</para>
+
+</section>
+
+
+
+
+<section>
+<sectiontitle>Knowing when a counter is complete</sectiontitle>
+
+<para>
+INCOMPLETE
+</para>
+
+</section>
+
+
+
+
+<section>
 <sectiontitle>Counter modulus</sectiontitle>
 
 <para>
