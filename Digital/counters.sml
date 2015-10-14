@@ -287,9 +287,53 @@ This circuit, or something very much like it, is at the heart of every position-
 <section>
 <sectiontitle>Starting a counter</sectiontitle>
 
-<para>
-INCOMPLETE
-</para>
+<index>Counter, loading</index>
+<index>Counter, resetting</index>
+<index>Counter, setting</index>
+
+Let's start by simplifying our timer down to a one bit version.
+
+_image_
+
+Now we have a "synchronouns" one bit counter that either counts up or counts down.
+Counts up or counts down from <italic>where</italic>?
+
+Until now we have skipped over how our counters know which number to start at;
+and for many systems we only care that it's counting and not where in it's count it is but there are times where we want it to start at a set value.
+
+Returning to our one bit counter, there are only two starting places:
+we can either start at 0, or we can start at 1.
+
+We can start it at 0 by setting the J low, like this.
+
+_image_
+
+We can start it at 1 by setting the K low, like this.
+
+_image_
+
+And we can easily expand this back to our four bit counter as follows.
+
+_image_
+
+These are by far the most common choices for how to start a timer.
+Typically a system will start at all zeros, or resetting the timer, when the circuit is being used to count or to measure;
+and a system will start at all ones, or setting the timer, when the circuit is being used to do something repeatedly.
+But there is no requirement that these be the only two choices.
+
+We can program a <italic>load value</italic> and select each bit individually.
+
+_image_
+
+You will note that I am ignoring how the load value is selected.
+By now you should be able to do this yourself using boolean logic, some flip flops to set a value, ore even a memery IC;
+and any of these are used depending on the circuit's needs.
+
+<itemize>
+<item><bold>REVIEW:</bold></item>
+<item>A counter can be "reset" to all zeros and this is usually for counting up.</item>
+<item>A counter can be "set" to all ones and this is usually for counting down.</item>
+<item>A counter can also "load" a starting value.</item>
 
 </section>
 
