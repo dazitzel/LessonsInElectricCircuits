@@ -291,7 +291,7 @@ This circuit, or something very much like it, is at the heart of every position-
 <index>Counter, resetting</index>
 <index>Counter, setting</index>
 
-Let's start by simplifying our timer down to a one bit version.
+Let's start by simplifying our timer down to a 1-bit version.
 
 _image_
 
@@ -317,8 +317,8 @@ And we can easily expand this back to our four bit counter as follows.
 _image_
 
 These are by far the most common choices for how to start a timer.
-Typically a system will start at all zeros, or resetting the timer, when the circuit is being used to count or to measure;
-and a system will start at all ones, or setting the timer, when the circuit is being used to do something repeatedly.
+Typically a system will start at all zeros, or resetting the timer, when the counter is being used to count or to measure;
+and a system will start at all ones, or setting the timer, when the counter is being used to do something repeatedly.
 But there is no requirement that these be the only two choices.
 
 We can program a <italic>load value</italic> and select each bit individually.
@@ -326,7 +326,7 @@ We can program a <italic>load value</italic> and select each bit individually.
 _image_
 
 You will note that I am ignoring how the load value is selected.
-By now you should be able to do this yourself using boolean logic, some flip flops to set a value, ore even a memery IC;
+By now you should be able to do this yourself using boolean logic, some flip flops to set a value, or even a memery IC;
 and any of these are used depending on the circuit's needs.
 
 <itemize>
@@ -334,6 +334,7 @@ and any of these are used depending on the circuit's needs.
 <item>A counter can be "reset" to all zeros and this is usually for counting up.</item>
 <item>A counter can be "set" to all ones and this is usually for counting down.</item>
 <item>A counter can also "load" a starting value.</item>
+</itemize>
 
 </section>
 
@@ -343,9 +344,47 @@ and any of these are used depending on the circuit's needs.
 <section>
 <sectiontitle>Knowing when a counter is complete</sectiontitle>
 
-<para>
-INCOMPLETE
-</para>
+<index>Counter, triggering</index>
+
+Let's take a step back and return to our up/down counter.
+
+_image from before_
+
+Up to this point we have never known when the counting is done.
+
+The most obvious choices are to trigger:
+if it reaches all 0s, because we are counting down or;
+if it reaches all 1s, because we are counting up.
+
+Testing for all zeros is a simple NOR gate.
+Testing for all ones is a simple AND gate.
+
+Here's our Up/down counter with these two possibilities being tested for.
+
+_image_
+
+These are by far the most obvious choices, but I'm not certain that they are the most common.
+
+For a counter which is counting down, testing for all zeros is probably the most common;
+but for a counter which is counting up, testing for all ones does occur but it is not nearly as common.
+
+When a counter is being used to count or measure, we are usually counting to or measuring to something.
+When you wish to match to a specific value, you can just design the circuit much like the NOR and AND gates above.
+As an example, here is a counter that signal when it reaches 10 which is also called a <italic>decade counter</italic>.
+
+<index>counter, decade</index>
+
+_image_
+
+Of course, this matches 10, 11, 14, and 15.
+If you want to match just the number 10, you could use the equality circuit from the
+<italic>Combinatorial Logic Functions</italic> chapter.
+
+<itemize>
+<item><bold>REVIEW:</bold></item>
+<item>A counter can "trigger" when it reaches all zeros and this is usually for counting down.</item>
+<item>A counter can "trigger" at any other value and this is usually for counting up.</item>
+</itemize>
 
 </section>
 
