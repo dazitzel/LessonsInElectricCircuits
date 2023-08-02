@@ -19,11 +19,12 @@ MS Windows users note that the popular WinZip utility is said to be able
 to process the .tar and .tar.gz of which we speak below. Use that instead
 of the Linux/UNIX based instructions in this document to unzip the
 single liechtml.tar.gz, and the individual *.ps.gz for each volume. We
-doubt that it is reasible to modify the sources on other than a Linux or
+doubt that it is practical to modify the sources on other than a Linux or
 Unix sustem.
 
 
 This document describes: 
+    1)Prerequisites
     1)How to generate source files for all volumes from liectiny.tar or 
       liecsrc.tar
     2)How to make html (make html)
@@ -32,6 +33,13 @@ This document describes:
         pdf   - adobe portable document format
         LaTex - for publishing a printed book
 	ascii - plain text 
+
+Prerequisites
+    1) sed - linux text stream editor or Wondows equivalent
+    2) LaTeX - texlive-full is a 5Gib package meeting the requirements
+       A much smaller assembly of texlive packages needs to be determined
+       by the author as an update.
+
 
 Organization
 
@@ -208,7 +216,7 @@ The 'eps' option creates Encapsulated PostScript (EPS) versions
 of all photographic images and artwork images from their
 respective JPG source files.  If you add or modify .jpg photo's or .png
 screen cpature shots, you migh use this. Before running "make html" on
-liecdtiny, run a "make eps" Requires a few minutes on a 500 Mhz P5.
+liecdtiny, run a "make png" Requires a few minutes on a 500 Mhz P5.
 
 More notes:
 

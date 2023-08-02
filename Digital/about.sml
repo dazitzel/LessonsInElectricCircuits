@@ -10,6 +10,7 @@
 
 <comment> Modified 11/04/2001 (TK) -- Slightly altered URL inclusion, to match new update in SubML standard (version 0.90).</comment>
 
+<comment> Modified 11/06/2021 (DC) -- Added/replaced references to DSL license with CC BY license.</comment>
 
 <chapter>
 <chaptertitle><sp><sp>ABOUT THIS BOOK</chaptertitle>
@@ -38,7 +39,7 @@ So, I decided to make the book freely available.  More than that, I decided to m
 </para>
  
 <para>
-The first such License I applied to my work was the GPL -- General Public License -- of the Free Software Foundation (GNU).  The GPL, however, is intended to copyleft works of computer software, and although its introductory language is broad enough to cover works of text, its wording is not as clear as it could be for that application.  When other, less specific copyleft Licenses began appearing within the free software community, I chose one of them (the Design Science License, or DSL) as the official notice for my project.
+The first such License I applied to my work was the GPL -- General Public License -- of the Free Software Foundation (GNU).  The GPL, however, is intended to copyleft works of computer software, and although its introductory language is broad enough to cover works of text, its wording is not as clear as it could be for that application.  When other, less specific copyleft Licenses began appearing within the free software community, I chose one of them (the Design Science License, or DSL) as the official notice for my project.  Once the author of the DSL said it was obsolete, I moved on to Creative Commons (CC BY License).
 </para>
  
 <para>
@@ -46,7 +47,7 @@ In "copylefting" this text, I guaranteed that no instructor would be limited by 
 </para>
  
 <para>
-It must be mentioned that although I strive to maintain technical accuracy in all of this book's content, the subject matter is broad and harbors many potential dangers.  Electricity maims and kills without provocation, and deserves the utmost respect.  I strongly encourage experimentation on the part of the reader, but only with circuits powered by small batteries where there is no risk of electric shock, fire, explosion, etc.  High-power electric circuits should be left to the care of trained professionals!  The Design Science License clearly states that neither I nor any contributors to this book bear any liability for what is done with its contents.
+It must be mentioned that although I strive to maintain technical accuracy in all of this book's content, the subject matter is broad and harbors many potential dangers.  Electricity maims and kills without provocation, and deserves the utmost respect.  I strongly encourage experimentation on the part of the reader, but only with circuits powered by small batteries where there is no risk of electric shock, fire, explosion, etc.  High-power electric circuits should be left to the care of trained professionals!  The CC BY License clearly states that neither I nor any contributors to this book bear any liability for what is done with its contents.
 </para>
  
 </section>
@@ -117,7 +118,7 @@ I wish to specifically thank Jeffrey Elkner and all those at Yorktown High Schoo
 </para>
  
 <para>
-Thanks to Michael Stutz for drafting his Design Science License, and to Richard Stallman for pioneering the concept of copyleft.
+Thanks to Michael Stutz for drafting his Design Science License, to Richard Stallman for pioneering the concept of copyleft, and to Creative Commons for the CC BY License.
 </para>
  
 <para>

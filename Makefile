@@ -6,23 +6,13 @@
 
 #####################################################################
 
-pdf :
-#	make -C DC html
-#	make -C AC html
-#	make -C Semi html
-	cd Digital & nmake pdf & cd ..
-#	make -C Ref html
-#	make -C Exper html
-
-#####################################################################
-
 html :
-#	make -C DC html
-#	make -C AC html
-#	make -C Semi html
-#	cd Digital & nmake html & cd ..
-#	make -C Ref html
-#	make -C Exper html
+	make -C DC html
+	make -C AC html
+	make -C Semi html
+	make -C Digital html
+	make -C Ref html
+	make -C Exper html
 
 # The 'html' option puts together all the pieces necessary to create
 # HTML output for each volume of the book.  It should stay at the 
@@ -31,16 +21,16 @@ html :
 #####################################################################
 
 all :
-#	make html
-#	make liechtml
-#	make liecsrc
-#	make liectiny
-#	make -C DC DC.ps
-#	make -C AC AC.ps
-#	make -C Semi SEMI.ps
-#	make -C Digital DIGI.ps
-#	make -C Ref REF.ps
-#	make -C Exper EXP.ps
+	make html
+	make liechtml
+	make liecsrc
+	make liectiny
+	make -C DC DC.ps
+	make -C AC AC.ps
+	make -C Semi SEMI.ps
+	make -C Digital DIGI.ps
+	make -C Ref REF.ps
+	make -C Exper EXP.ps
 
 # The 'all' option generates HTML and compressed PostScript output 
 # for all volumes, and also updates all archive files.  The intent 
@@ -55,23 +45,23 @@ all :
 #####################################################################
 
 alls:
-#	make html
-#	make liechtml
-#	make liectiny
-#	make liecsrc
+	make html
+	make liechtml
+	make liectiny
+	make liecsrc
 # alls is a short version of all, make all except ps
 
 
 tinyinstall :
-#	make png
-#	make eps
-#	make html
-#	make -C DC DC.ps
-#	make -C AC AC.ps
-#	make -C Semi SEMI.ps
-#	make -C Digital DIGI.ps
-#	make -C Ref REF.ps
-#	make -C Exper EXP.ps
+	make png
+	make eps
+	make html
+	make -C DC DC.ps
+	make -C AC AC.ps
+	make -C Semi SEMI.ps
+	make -C Digital DIGI.ps
+	make -C Ref REF.ps
+	make -C Exper EXP.ps
 
 # The 'tinyinstall' option installs all necessary files from the
 # untarred 'liectiny.tar' archive file, after each of the '.tar'
@@ -81,12 +71,12 @@ tinyinstall :
 #####################################################################
 
 png : 
-#	make -C DC png
-#	make -C AC png
-#	make -C Semi png
-#	make -C Digital png
-#	make -C Ref png
-#	make -C Exper png
+	make -C DC png
+	make -C AC png
+	make -C Semi png
+	make -C Digital png
+	make -C Ref png
+	make -C Exper png
 
 # The 'png' option creates PNG versions of all illustrations, 
 # graphs, and equations from their respective EPS source files.
@@ -94,12 +84,12 @@ png :
 #####################################################################
 
 eps : 
-#	make -C DC eps
-#	make -C AC eps
-#	make -C Semi eps
-#	make -C Digital eps
-#	make -C Ref eps
-#	make -C Exper eps
+	make -C DC eps
+	make -C AC eps
+	make -C Semi eps
+	make -C Digital eps
+	make -C Ref eps
+	make -C Exper eps
 
 # The 'eps' option creates Encapsulated PostScript (EPS) versions 
 # of all photographic images and artwork images from their
@@ -108,29 +98,29 @@ eps :
 #####################################################################
 
 liectiny : 
-#	make -C DC DCtiny.tar.gz
-#	make -C AC ACtiny.tar.gz
-#	make -C Semi SEMItiny.tar.gz
-#	make -C Digital DIGItiny.tar.gz
-#	make -C Ref REFtiny.tar.gz
-#	make -C Exper EXPtiny.tar.gz
-#	tar cvf liectiny.tar Makefile \
-#			     README\
-#			     sm_hosted.gif\
-#			     log.html\
-#			     index.* \
-#			     Devel/* \
-#			     bin/* \
-#	                     *.jpg \
-#	                     *.eps \
-#	                     *.png \
-#	                     submlreg \
-#	                     DC/DCtiny.tar.gz \
-#	                     AC/ACtiny.tar.gz \
-#			     Semi/SEMItiny.tar.gz \
-#			     Digital/DIGItiny.tar.gz \
-#			     Ref/REFtiny.tar.gz \
-#			     Exper/EXPtiny.tar.gz
+	make -C DC DCtiny.tar.gz
+	make -C AC ACtiny.tar.gz
+	make -C Semi SEMItiny.tar.gz
+	make -C Digital DIGItiny.tar.gz
+	make -C Ref REFtiny.tar.gz
+	make -C Exper EXPtiny.tar.gz
+	tar cvf liectiny.tar Makefile \
+			     README\
+			     sm_hosted.gif\
+			     log.html\
+			     index.* \
+			     Devel/* \
+			     bin/* \
+	                     *.jpg \
+	                     *.eps \
+	                     *.png \
+	                     submlreg \
+	                     DC/DCtiny.tar.gz \
+	                     AC/ACtiny.tar.gz \
+			     Semi/SEMItiny.tar.gz \
+			     Digital/DIGItiny.tar.gz \
+			     Ref/REFtiny.tar.gz \
+			     Exper/EXPtiny.tar.gz
 
 # The 'liectiny' option archives the bare minimum set of files 
 # necessary to reconstruct the entire book.  Image files, while 
@@ -143,29 +133,29 @@ liectiny :
 #####################################################################
 
 liecsrc : 
-#	make -C DC DCsrc.tar.gz
-#	make -C AC ACsrc.tar.gz
-#	make -C Semi SEMIsrc.tar.gz
-#	make -C Digital DIGIsrc.tar.gz
-#	make -C Ref REFsrc.tar.gz
-#	make -C Exper EXPsrc.tar.gz
-#	tar cvf liecsrc.tar Makefile \
-#	                    README\
-#	                    sm_hosted.gif\
-#	                    log.html\
-#	                    index.* \
-#	                    Devel/* \
-#			     bin/* \
-#	                    *.jpg \
-#	                    *.eps \
-#	                    *.png \
-#	                    submlreg \
-#	                    DC/DCsrc.tar.gz \
-#	                    AC/ACsrc.tar.gz \
-#			    Semi/SEMIsrc.tar.gz \
-#			    Digital/DIGIsrc.tar.gz \
-#			    Ref/REFsrc.tar.gz \
-#			    Exper/EXPsrc.tar.gz
+	make -C DC DCsrc.tar.gz
+	make -C AC ACsrc.tar.gz
+	make -C Semi SEMIsrc.tar.gz
+	make -C Digital DIGIsrc.tar.gz
+	make -C Ref REFsrc.tar.gz
+	make -C Exper EXPsrc.tar.gz
+	tar cvf liecsrc.tar Makefile \
+	                    README\
+	                    sm_hosted.gif\
+	                    log.html\
+	                    index.* \
+	                    Devel/* \
+			     bin/* \
+	                    *.jpg \
+	                    *.eps \
+	                    *.png \
+	                    submlreg \
+	                    DC/DCsrc.tar.gz \
+	                    AC/ACsrc.tar.gz \
+			    Semi/SEMIsrc.tar.gz \
+			    Digital/DIGIsrc.tar.gz \
+			    Ref/REFsrc.tar.gz \
+			    Exper/EXPsrc.tar.gz
 
 # The 'liecsrc' option archives all source files necessary to 
 # reconstruct the entire book.  
@@ -173,16 +163,16 @@ liecsrc :
 #####################################################################
 
 liechtml : 
-#	tar cf liechtml.tar \
-#             DC/*.htm* DC/*.jpg DC/*.png \
-#             AC/*.htm* AC/*.jpg AC/*.png \
-#             Semi/*.htm* Semi/*.jpg Semi/*.png \
-#             Digital/*.htm* Digital/*.jpg Digital/*.png \
-#             Ref/*.htm* Ref/*.jpg Ref/*.png \
-#             Exper/*.htm* Exper/*.jpg Exper/*.png \
-#             Devel/*.htm* Devel/*.jpg Devel/*.png \
-#             index.htm *.jpg *.png
-#	gzip -f liechtml.tar
+	tar cf liechtml.tar \
+             DC/*.htm* DC/*.jpg DC/*.png \
+             AC/*.htm* AC/*.jpg AC/*.png \
+             Semi/*.htm* Semi/*.jpg Semi/*.png \
+             Digital/*.htm* Digital/*.jpg Digital/*.png \
+             Ref/*.htm* Ref/*.jpg Ref/*.png \
+             Exper/*.htm* Exper/*.jpg Exper/*.png \
+             Devel/*.htm* Devel/*.jpg Devel/*.png \
+             index.htm *.jpg *.png
+	gzip -f liechtml.tar
 
 # The 'liechtml' option pieces together only those files 
 # necessary for all volumes of the book to be viewable in HTML 
@@ -193,12 +183,12 @@ liechtml :
 #####################################################################
 
 untarliectiny : 
-#	@cd DC && tar xvzf DCtiny.tar.gz
-#	@cd AC && tar xvzf ACtiny.tar.gz
-#	@cd Semi && tar xvzf SEMItiny.tar.gz
-#	@cd Digital && tar xvzf DIGItiny.tar.gz
-#	@cd Ref && tar xvzf REFtiny.tar.gz
-#	@cd Exper && tar xvzf EXPtiny.tar.gz
+	@cd DC && tar xvzf DCtiny.tar.gz
+	@cd AC && tar xvzf ACtiny.tar.gz
+	@cd Semi && tar xvzf SEMItiny.tar.gz
+	@cd Digital && tar xvzf DIGItiny.tar.gz
+	@cd Ref && tar xvzf REFtiny.tar.gz
+	@cd Exper && tar xvzf EXPtiny.tar.gz
 
 # The "untarliectiny" make target will unzip and untar the tar.gz
 #residing in each of the individual subdirectories after executing
@@ -207,12 +197,12 @@ untarliectiny :
 #####################################################################
 
 untarliecsrc : 
-#	@cd DC && tar xvzf DCsrc.tar.gz
-#	@cd AC && tar xvzf ACsrc.tar.gz
-#	@cd Semi && tar xvzf SEMIsrc.tar.gz
-#	@cd Digital && tar xvzf DIGIsrc.tar.gz
-#	@cd Ref && tar xvzf REFsrc.tar.gz
-#	@cd Exper && tar xvzf EXPsrc.tar.gz
+	@cd DC && tar xvzf DCsrc.tar.gz
+	@cd AC && tar xvzf ACsrc.tar.gz
+	@cd Semi && tar xvzf SEMIsrc.tar.gz
+	@cd Digital && tar xvzf DIGIsrc.tar.gz
+	@cd Ref && tar xvzf REFsrc.tar.gz
+	@cd Exper && tar xvzf EXPsrc.tar.gz
 
 #The "untarliecsrc" make target will unzip and untar the tar.gz
 #residing in each of the individual subdirectories after executing
@@ -220,11 +210,30 @@ untarliecsrc :
 #The subdirectories include AC, DC, Semi, Digital, REf, Exper
 #####################################################################
 
-
 clean :
-#	make -C DC html
-#	make -C AC html
-#	make -C Semi html
-	cd Digital & nmake clean & cd ..
-#	make -C Ref html
-#	make -C Exper html
+	make -C DC clean
+	make -C AC clean
+	make -C Semi clean
+	make -C Digital clean
+	make -C Ref clean
+	make -C Exper clean
+
+# The 'clean' target removes uneeded files from volume directories.
+# Useful prior to rsync from local to ibiblio
+#####################################################################
+
+latex_clean :
+	make -C DC latex_clean
+	make -C AC latex_clean
+	make -C Semi latex_clean
+	make -C Digital latex_clean
+	make -C Ref latex_clean
+	make -C Exper latex_clean
+
+# The 'latex_clean' target removes uneeded latex generted files.
+# Useful prior to rsync from local to ibiblio
+#####################################################################
+
+
+
+

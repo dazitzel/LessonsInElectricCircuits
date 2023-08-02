@@ -402,204 +402,13 @@ design the circuit. The equations were simplified with karnaugh maps.</para>
 
 <section>
 
-<sectiontitle>Magnitude Comparator</sectiontitle>
-
-<index>Comparator, Magnitude</index>
-<index>Equality, Digital</index>
-
-All of the circuits we have looked at so far are considered standard circuits
-that "everyone" should know, and that "everyone" should know how to combine
-into larger pieces.
-So up until now we've been combining 1-bit circuits into multi-bit circuits
-and, at least implicitly, asking you to confirm that it works with very little
-concern over how we figured out to combine them.
-
-Let's slow down just a little and think about how you figure this out.
-You may recall our discussion in the <italic>Karnaugh Mapping</italic> chapter
-about a magnitude comparator and how we calculated the logic function for the
-A<gt>B output and two 3-bit inputs.
-Let's consider the A=B output and build it up from a 1-bit version to 4-bit version.
-
-The truth table for a 1-bit equality function is
-
-_image from before_
-
-This should look very familiar to us because its the XNOR gate.
-
-The truth table for a 2-bit equality function is
-
-_image_
-
-Our first option is to use a either boolean algebra or a karnaugh map to
-determine the sum-of-products or products-of-sums equation and connect
-our gates;
-and that option worked very well for our 7-segment encoder where a 1-bit version doesn't really exist.
-
-Our second option is to combine our 1-bit circuit into a 2-bit circuit.
-
-First we add to our truth table to highlight our already existing 1-bit circuit.
-
-_image_
-
-Then we reorganize it to group our 1-bit, or intermediate, results together.
-I like to treat the intermediate results as if they are a binary number and count from 0 up,
-but any method that groups all of the same intermediate result together works just fine.
-
-If you find that a pair of results where the intermediate results are the same but
-the final outputs are different, then you've got to go back to making a sum-of-products
-or product-of-sums circuit.
-We don't have that problem here, so condense the truth table by
-removing the real inputs and just looking at the intermediate results.
-
-_image from before_
-
-This is the AND gate.
-
-So here's our 2-bit circuit
-
-_image_
-
-Now let's repeat
-
-Initial truth table (abbreviated) is
-
-_image_
-
-With intermediate results (abbreviated) is
-
-_image_
-
-Trimmed down to just the intermediate results, but wait.
-Which intermediate results?
-
-We can either look at the results from our 1-bit equality circuit or we can look at
-the results from our 2-bit equality circuit.
-Without any prior knowledge, the simplest course to follow is to ignore the intermediate results from the 1-bit equality circuit,
-because we already built a 2-bit equality circuit.
-This will generate a smaller karnaugh map or simler logic equation to implement.
-So, looking at the correct intermediate results we find
-
-_image from above_
-
-There it is again, our old friend the AND gate.
-
-Our circuit looks like this
-
-_image_
-
-and we can correctly infer that an 8-bit equality circuit can be built like this
-
-_image_
-
-because the detailed version looks like this
-
-_image_
-
-This is one reason why binary circuits seem to come in 8, 16, and 32-bit versions but
-sizes like 23-bits are rarer.
-
-Now I'm going to disappoint you, this isn't how a 4-bit equality circuit looks like in the wild.
-It usually looks more like this
-
-_image_
-
-This does make sense, if each pair of bits are equal then the number is equal.
-So why would you go through this process instead of just logically thinking about the circuit and building it?
-And how did someone figure this out?
-
-There are a few reasons you would go through this process.
-
-<bold>Simplicity</bold>
-
-Remember back to algebra and being introduced to the quadratic equation?
-Did you see the point at first?
-Most don't because you first use the quadratic equation on functions that can quite easily be factored;
-but there's a point where factoring becomes more difficult than just plugging <italic>a</italic>,
-<italic>b</italic>, and <italic>c</italic> into a memorized function.
-
-Likewise this circuit is simple, but you sometimes designing a 1-bit solution and doubling it's
-capacity for something not quite as simple and approaching it this way will allow you to complete
-the design quicker - and the time it takes to design a circuit does matter.
-
-<bold>Preparing for the future</bold>
-
-The second reason is to prepare for the future.
-Imagine that you made a 1024-bit version of this circuit, and then think about the number of gates
-all the signals have to run through before you have your final result.
-For this circuit there's the XNOR gates, plus the 2-bit AND, the 4-bit AND, ...
-
-If you find out that your circuit works well but just isn't <italic>fast enough</italic> you can
-either go for broke and calculate the entire logic function, or you can take a step inside and
-just calculate the logic function for the 2-bit version.
-Replace that <italic>implementation</italic> with the built-up version as long as the
-<italic>function</italic> is the same.
-This will make your circuit just a little bit faster, and sometimes you just need a little;
-and making your circuit incrementally faster is much simpler than just making one huge logic function
-which is as fast as possible.
-
-<index>implementation versus function</index>
-<index>function versus implementation</index>
-
-If that's not fast enough you can either generate the logic function for a 4-bit version, or
-follow the same process again.
-In our initial design we only looked at the intermediate results for a circuit one level lower
-because that makes for the simplest logic function to generate and the smallest karnaugh map.
-When desiging the 4-bit version, we (almost) didn't spend any time considering the 1-bit results.
-But if you are willing to accept a larger karnaugh map or a longer logic equation, you can look at the two levels lower instead.
-When desiging the 4-bit version, you can look at the 1-bit vesion and your circuit will be just a little faster.
-In fact, this will probably make the final version a bit more obvious!
-
-<bold>Comprehension</bold>
-
-A human looking at a 4-bit equality circuit and seeing that it's two 2-bit circuits which can be
-understood independently, and seeing that each of those are two 1-bit circuits which can be
-understood independently has a much better chance of understanding your circuit.
-
-Even better, <italic>you</italic> have a much better chance of understanding your circuit and can
-reason about it's correctness.
-
-Finally,
-
-<bold>Validation</bold>
-
-Do you already know that your circuit has to be as fast as possible.
-Wonderful, how do you validate that it's working?
-You need to know that you calculated your logic function correctly,
-that you designed your circuit correctly,
-and that you connected all your gates correctly.
-There's a lot that can go wrong in that process.
-
-When you have a circuit with a large number of inputs, manually checking each and every result is simply not possible;
-so you would probably only check a random sampling of results and hope the rest are correct.
-Not testing 100% of the inputs is an accepted risk for complex circuits, but 1% usually isn't;
-and the closer you get to 100% the better!
-
-But when the circuit is a complex function just figuring out if the answer is correct can take time;
-and time taken validating correctness of each answer means that you are much closer to 1% than 100%.
-
-Design your 1-bit circuit first and built it up.
-Accept that it it slow.
-Then design your massive (but fast) circuit.
-Then you can connect the circuits to an equality circuit and check that they do give the same results.
-
-This does take more time than just designing one fast circuit, but it does give you confidence that your design
-is correct.
-
-</section>
-
-<section>
-
 <sectiontitle>Demultiplexers</sectiontitle>
 
 <index>Decoder, line</index>
 <index>Demultiplexer</index>
 <index>dmux</index>
 
-All the circuits we have seen so far just perform the same function, but bigger;
-sometimes by duplication and sometimes by combining the outputs in new ways.
-There are also circuits which combine the outputs in ways to make a circuit do something now.
-
-<para>One of these is a demultiplexer, sometimes abbreviated dmux, is a circuit that has one
+<para>A demultiplexer, sometimes abbreviated dmux, is a circuit that has one
 input and more than one output. It is used when a circuit wishes to send a
 signal to one of many devices. This description sounds similar to the
 description given for a decoder, but a decoder is used to select among many
@@ -705,11 +514,8 @@ you hear about a multiplexer, it may mean something quite different.</para>
 
 <sectiontitle>Using multiple combinational circuits</sectiontitle>
 
-Finally, there are many circuits which do such complex things that the
-only reasonable recourse is to combine several disparate circuits
-based on a logical design.
 
-<para>As an example of this, we are going to make a
+<para>As an example of using several circuits together, we are going to make a
 device that will have 16 inputs, representing a four digit number, to a four
 digit 7-segment display but using just one binary-to-7-segment encoder.</para>
 
